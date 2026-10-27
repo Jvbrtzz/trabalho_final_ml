@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Classificação educacional de massas mamárias com Regressão Logística.">
+  <title>OncoLens | Classificação educacional</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="logo">◎</span> OncoLens</div>
+    <span class="tag">REGRESSÃO LOGÍSTICA • PROJETO ACADÊMICO</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Classificação clara, responsável e reprodutível.</h1>
+      <p>Informe as medidas médias obtidas da imagem de uma massa mamária. O modelo estima a probabilidade de o padrão pertencer à classe maligna.</p>
+    </section>
+
+    <section class="card">
+      <h2>Características da amostra</h2>
+      <p class="sub">Todos os campos são obrigatórios e aceitam apenas valores nas faixas indicadas.</p>
+
+      <form id="prediction-form" novalidate>
+        <div>
+          <label for="mean_radius">Raio médio <span class="unit">6–30</span></label>
+          <input id="mean_radius" name="mean_radius" type="number" min="6" max="30" step="0.01" value="14.13" required>
+        </div>
+        <div>
+          <label for="mean_texture">Textura média <span class="unit">5–45</span></label>
+          <input id="mean_texture" name="mean_texture" type="number" min="5" max="45" step="0.01" value="19.29" required>
+        </div>
+        <div>
+          <label for="mean_perimeter">Perímetro médio <span class="unit">40–200</span></label>
+          <input id="mean_perimeter" name="mean_perimeter" type="number" min="40" max="200" step="0.01" value="91.97" required>
+        </div>
+        <div>
+          <label for="mean_area">Área média <span class="unit">100–3000</span></label>
+          <input id="mean_area" name="mean_area" type="number" min="100" max="3000" step="0.1" value="654.9" required>
+        </div>
+        <div>
+          <label for="mean_smoothness">Suavidade média <span class="unit">0,04–0,18</span></label>
+          <input id="mean_smoothness" name="mean_smoothness" type="number" min="0.04" max="0.18" step="0.0001" value="0.0964" required>
+        </div>
+        <div>
+          <label for="mean_compactness">Compacidade média <span class="unit">0,01–0,40</span></label>
+          <input id="mean_compactness" name="mean_compactness" type="number" min="0.01" max="0.40" step="0.0001" value="0.1043" required>
+        </div>
+        <div>
+          <label for="mean_concavity">Concavidade média <span class="unit">0–0,50</span></label>
+          <input id="mean_concavity" name="mean_concavity" type="number" min="0" max="0.50" step="0.0001" value="0.0888" required>
+        </div>
+        <div>
+          <label for="mean_concave_points">Pontos côncavos médios <span class="unit">0–0,25</span></label>
+          <input id="mean_concave_points" name="mean_concave_points" type="number" min="0" max="0.25" step="0.0001" value="0.0489" required>
+        </div>
+        <button id="submit-button" type="submit">Analisar amostra →</button>
+      </form>
+    </section>
+
+    <aside class="card">
+      <h2>Resultado</h2>
+      <p class="sub">Estimativa do pipeline treinado.</p>
+      <div id="result" class="result" role="status" aria-live="polite">
+        <div class="icon">⌁</div>
+        <h3>Aguardando dados</h3>
+        <p>Preencha o formulário e clique em analisar.</p>
+      </div>
+      <div class="note"><b>Atenção:</b> ferramenta educacional. O resultado não substitui avaliação, exame ou diagnóstico realizado por profissional de saúde.</div>
+      <div class="how">
+        <b>Como funciona</b>
+        <ol>
+          <li>Os dados são validados.</li>
+          <li>O mesmo scaler do treino padroniza as entradas.</li>
+          <li>A regressão logística calcula a probabilidade.</li>
+        </ol>
+      </div>
+    </aside>
+  </main>
+
+  <footer>Dataset Wisconsin Diagnostic • 569 observações • API FastAPI • v2.0</footer>
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
+

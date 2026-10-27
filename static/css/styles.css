@@ -1,0 +1,71 @@
+:root {
+  --ink: #17233b;
+  --muted: #64748b;
+  --paper: #f7f9fc;
+  --card: #fff;
+  --blue: #3157d5;
+  --cyan: #20b8a6;
+  --line: #dce4ef;
+  --danger: #c53a53;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: radial-gradient(circle at 85% 5%, #dff7f2 0, transparent 28%),
+              linear-gradient(135deg, #f8fafc, #eef2ff);
+  font: 15px/1.5 Inter, "Segoe UI", Arial, sans-serif;
+}
+
+header { max-width: 1180px; margin: auto; padding: 28px 28px 14px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; gap: 12px; align-items: center; font-size: 21px; font-weight: 800; letter-spacing: -.4px; }
+.logo { width: 42px; height: 42px; display: grid; place-items: center; color: white; border-radius: 13px; background: linear-gradient(135deg, var(--blue), var(--cyan)); box-shadow: 0 10px 24px #3157d533; }
+.tag { color: var(--blue); background: #e9edff; border: 1px solid #cdd6ff; padding: 6px 12px; border-radius: 99px; font-size: 12px; font-weight: 700; }
+
+main { max-width: 1180px; margin: 0 auto; padding: 20px 28px 40px; display: grid; grid-template-columns: 1.35fr .65fr; gap: 24px; }
+.hero { grid-column: 1/-1; padding: 8px 0 4px; }
+h1 { margin: 0; max-width: 780px; font-size: 42px; line-height: 1.08; letter-spacing: -1.6px; }
+.hero p { max-width: 780px; color: var(--muted); font-size: 16px; }
+
+.card { background: #ffffffdd; border: 1px solid #fff; border-radius: 22px; padding: 26px; box-shadow: 0 20px 55px #243b6b16; backdrop-filter: blur(8px); }
+.card h2 { margin: 0 0 4px; font-size: 20px; }
+.sub { color: var(--muted); margin: 0 0 22px; }
+
+form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+label { display: block; font-size: 12px; font-weight: 750; color: #43516b; margin-bottom: 6px; }
+.unit { float: right; font-weight: 500; color: #8a96a9; }
+input { width: 100%; border: 1px solid var(--line); border-radius: 11px; padding: 11px 12px; color: var(--ink); background: #fbfcfe; outline: none; font-size: 15px; transition: .2s; }
+input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px #3157d51b; background: white; }
+
+button { grid-column: 1/-1; border: 0; border-radius: 12px; padding: 14px; color: white; font-weight: 800; font-size: 15px; cursor: pointer; background: linear-gradient(100deg, var(--blue), #4d6fe1); box-shadow: 0 10px 25px #3157d530; transition: .2s; }
+button:hover:not(:disabled) { filter: brightness(1.04); transform: translateY(-1px); }
+button:disabled { cursor: wait; opacity: .72; }
+
+.result { min-height: 230px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border: 1px dashed #cfd9e8; border-radius: 16px; padding: 22px; background: #f8fafc; }
+.result .icon { width: 60px; height: 60px; display: grid; place-items: center; border-radius: 50%; background: #e8edff; color: var(--blue); font-size: 25px; margin-bottom: 12px; }
+.result h3 { margin: 2px 0; font-size: 25px; }
+.result p { color: var(--muted); margin: 5px 0; }
+.result.success { border-style: solid; border-color: #9addd5; background: #effcf9; }
+.result.success .icon { background: #d5f6ef; color: #087c6e; }
+.result.danger { border-style: solid; border-color: #efadba; background: #fff5f6; }
+.result.danger .icon { color: var(--danger); background: #ffe2e8; }
+.prob { width: 100%; height: 10px; border-radius: 10px; background: #dbe4ee; overflow: hidden; margin: 15px 0 5px; }
+.prob span { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--blue)); }
+
+.note { margin-top: 18px; border-radius: 13px; padding: 13px 15px; color: #6b5b18; background: #fff9df; border: 1px solid #f0dfa2; font-size: 12px; }
+.how { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.how b { display: block; margin-bottom: 6px; }
+.how ol { padding-left: 18px; margin: 5px 0; color: var(--muted); font-size: 13px; }
+footer { max-width: 1180px; margin: auto; padding: 0 28px 28px; color: #8490a4; font-size: 12px; }
+
+@media (max-width: 850px) {
+  main { grid-template-columns: 1fr; padding-inline: 18px; }
+  h1 { font-size: 33px; }
+  form { grid-template-columns: 1fr; }
+  header { padding-inline: 18px; }
+  .tag { display: none; }
+}
+
