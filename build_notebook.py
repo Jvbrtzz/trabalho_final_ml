@@ -23,8 +23,8 @@ def code(text: str) -> None:
 md(r"""
 # OncoLens: Classificação de Massas Mamárias com Regressão Logística
 
-**Aluno(a):** [PREENCHER NOME]  
-**Data:** 26 de outubro de 2026  
+**Alunos:** João Victor Bortoluzzi da Silva; Pedro Rimes Coutinho; Leonardo Ximenes  
+**Data:** 9 de novembro de 2026  
 **Dataset:** Breast Cancer Wisconsin (Diagnostic) — UCI Machine Learning Repository  
 **Técnica principal:** Regressão Logística (classificação supervisionada)
 

@@ -85,5 +85,5 @@ O fluxo de dependências aponta para dentro: as rotas conhecem o serviço, o ser
 
 Breast Cancer Wisconsin (Diagnostic), UCI Machine Learning Repository, DOI: [10.24432/C5DW2B](https://doi.org/10.24432/C5DW2B). São 569 observações, 30 atributos contínuos e duas classes. A cópia distribuída pelo scikit-learn foi usada para garantir reprodutibilidade.
 
-Antes de entregar, substitua `[PREENCHER NOME]` no notebook e no relatório pelo nome do(a) aluno(a).
+Integrantes: João Victor Bortoluzzi da Silva, Pedro Rimes Coutinho e Leonardo Ximenes.
 

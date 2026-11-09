@@ -36,13 +36,13 @@ def base_page(pdf: PdfPages, title: str, section: str, page: int):
     ax = fig.add_axes([0, 0, 1, 1]); ax.axis("off")
     ax.add_patch(FancyBboxPatch((.055, .925), .035, .035, boxstyle="round,pad=.008,rounding_size=.01",
                                 transform=ax.transAxes, facecolor=BLUE, edgecolor="none"))
-    ax.text(.0725, .942, "◎", ha="center", va="center", color="white", fontsize=12, fontweight="bold")
-    ax.text(.102, .943, "ONCOLENS", fontsize=9, fontweight="bold", va="center", color=BLUE)
-    ax.text(.055, .895, section.upper(), fontsize=8, fontweight="bold", color=TEAL)
-    ax.text(.055, .855, title, fontsize=22, fontweight="bold", va="top")
+    ax.text(.0725, .942, "◎", transform=ax.transAxes, ha="center", va="center", color="white", fontsize=12, fontweight="bold")
+    ax.text(.102, .943, "ONCOLENS", transform=ax.transAxes, fontsize=9, fontweight="bold", va="center", color=BLUE)
+    ax.text(.055, .895, section.upper(), transform=ax.transAxes, fontsize=8, fontweight="bold", color=TEAL)
+    ax.text(.055, .855, title, transform=ax.transAxes, fontsize=22, fontweight="bold", va="top")
     ax.plot([.055, .945], [.82, .82], color="#dce4ef", lw=1, transform=ax.transAxes)
-    ax.text(.055, .028, "Projeto acadêmico • Regressão Logística • Wisconsin Diagnostic", fontsize=7.5, color=MUTED)
-    ax.text(.945, .028, str(page), fontsize=8, color=MUTED, ha="right")
+    ax.text(.055, .028, "Projeto acadêmico • Regressão Logística • Wisconsin Diagnostic", transform=ax.transAxes, fontsize=7.5, color=MUTED)
+    ax.text(.945, .028, str(page), transform=ax.transAxes, fontsize=8, color=MUTED, ha="right")
     return fig, ax
 
 
@@ -65,17 +65,52 @@ with PdfPages(OUTPUT) as pdf:
     ax = fig.add_axes([0, 0, 1, 1]); ax.axis("off")
     ax.add_patch(Circle((.85, .86), .24, transform=ax.transAxes, color=TEAL, alpha=.13))
     ax.add_patch(Circle((.08, .12), .30, transform=ax.transAxes, color=BLUE, alpha=.20))
-    ax.text(.08, .89, "◎  ONCOLENS", color="#9ee7df", fontsize=12, fontweight="bold")
-    ax.text(.08, .69, "CLASSIFICAÇÃO DE\nMASSAS MAMÁRIAS", color="white", fontsize=33,
-            fontweight="bold", va="top", linespacing=1.08)
-    ax.text(.08, .50, "Um projeto completo de Machine Learning\ncom Regressão Logística", color="#cbd5e1",
+    ax.text(.08, .89, "◎  ONCOLENS", transform=ax.transAxes, color="#9ee7df", fontsize=12, fontweight="bold")
+    ax.text(
+        .08,
+        .82,
+        "RELATÓRIO FINAL  •  VERSÃO ATUALIZADA",
+        transform=ax.transAxes,
+        color="#9ee7df",
+        fontsize=9,
+        fontweight="bold",
+    )
+    ax.text(.08, .69, "CLASSIFICAÇÃO  DE", transform=ax.transAxes, color="white", fontsize=29,
+            fontweight="bold", va="top")
+    ax.text(.08, .62, "MASSAS  MAMÁRIAS", transform=ax.transAxes, color="white", fontsize=29,
+            fontweight="bold", va="top")
+    ax.text(.08, .50, "Um projeto completo de Machine Learning\ncom Regressão Logística", transform=ax.transAxes, color="#cbd5e1",
             fontsize=16, va="top", linespacing=1.5)
     ax.plot([.08, .34], [.39, .39], color=TEAL, lw=4, transform=ax.transAxes)
-    ax.text(.08, .31, "ALUNO(A)", color="#8292ab", fontsize=8, fontweight="bold")
-    ax.text(.08, .275, "[PREENCHER NOME]", color="white", fontsize=14, fontweight="bold")
-    ax.text(.08, .20, "DATA", color="#8292ab", fontsize=8, fontweight="bold")
-    ax.text(.08, .165, "26 de outubro de 2026", color="white", fontsize=12)
-    ax.text(.08, .07, "Breast Cancer Wisconsin (Diagnostic) • UCI Machine Learning Repository", color="#8292ab", fontsize=8)
+    ax.text(.08, .31, "ALUNOS", transform=ax.transAxes, color="#8292ab", fontsize=8, fontweight="bold")
+    ax.text(
+        .08,
+        .278,
+        "João Victor Bortoluzzi da Silva\nPedro Rimes Coutinho\nLeonardo Ximenes",
+        transform=ax.transAxes,
+        color="white",
+        fontsize=12,
+        fontweight="bold",
+        va="top",
+        linespacing=1.35,
+    )
+    ax.text(.08, .19, "CONTRIBUIÇÃO DO GRUPO", transform=ax.transAxes, color="#8292ab", fontsize=8, fontweight="bold")
+    ax.text(
+        .08,
+        .165,
+        "Todos os integrantes participaram e contribuíram em todas as etapas do projeto.",
+        transform=ax.transAxes,
+        color="#cbd5e1",
+        fontsize=9,
+    )
+    ax.text(.08, .12, "DATA", transform=ax.transAxes, color="#8292ab", fontsize=8, fontweight="bold")
+    ax.text(.08, .09, "9 de novembro de 2026", transform=ax.transAxes, color="white", fontsize=12)
+    ax.text(.08, .04, "Breast Cancer Wisconsin (Diagnostic) • UCI Machine Learning Repository", transform=ax.transAxes, color="#8292ab", fontsize=8)
+    fig.savefig(
+        REPORTS / "capa_atualizada.png",
+        dpi=150,
+        facecolor=fig.get_facecolor(),
+    )
     pdf.savefig(fig); plt.close(fig)
 
     # 2 — Introdução
